@@ -19,6 +19,7 @@
     <!--suppress UnresolvedMavenProperty -->
     <description>Spring Data Jpa 支持 @TableComment("表名注释") @ColumnComment("字段注释")</description>
 
+    <!--开源协议-->
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -27,6 +28,7 @@
         </license>
     </licenses>
 
+    <!-- 项目地址描述 -->
     <scm>
         <tag>main</tag>
         <url>https://github.com/hongyukeji/spring-data-jpa-comment.git</url>
@@ -34,6 +36,7 @@
         <developerConnection>scm:git:https://github.com/hongyukeji/spring-data-jpa-comment.git</developerConnection>
     </scm>
 
+    <!-- 开发者描述 -->
     <developers>
         <developer>
             <name>鸿宇</name>
@@ -176,7 +179,7 @@
                         <!--<version>1.6</version>-->
                         <executions>
                             <execution>
-                                <!--<id>sign-artifacts</id>-->
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
