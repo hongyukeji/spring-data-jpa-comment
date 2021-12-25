@@ -127,7 +127,8 @@
 
     <profiles>
         <profile>
-            <id>sonatype-oss-release</id>
+            <!-- mvn clean deploy -P release -->
+            <id>release</id>
             <build>
                 <plugins>
                     <plugin>
@@ -136,12 +137,14 @@
                         <version>1.6.7</version>
                         <extensions>true</extensions>
                         <configuration>
+                            <!-- 这里的id必须要和全局配置中的release id 一致 -->
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                            <!-- 如果希望发布后自动执行close和release操作，此处可以调整为true -->
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
-                    <!-- Source -->
+                    <!-- 生成java source.jar -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -179,7 +182,9 @@
                         <!--<version>1.6</version>-->
                         <executions>
                             <execution>
-                                <id>sign-artifacts</id>
+                                <!-- 必须和配置中的gpg校验id一致 -->
+                                <id>gpg</id>
+                                <!--<id>sign-artifacts</id>-->
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
@@ -193,13 +198,18 @@
                     </plugin>
                 </plugins>
             </build>
+            <!-- 发布管理信息 -->
             <distributionManagement>
                 <snapshotRepository>
+                    <!-- 这里的id必须要和全局配置中的snapshot id 一致 -->
                     <id>ossrh</id>
+                    <!-- 这里就是在创建issue成功后，对方回复的snapshot发布地址-->
                     <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
                 </snapshotRepository>
                 <repository>
+                    <!-- 这里的id必须要和全局配置中的release id 一致 -->
                     <id>ossrh</id>
+                    <!-- 这里就是在创建issue成功后，对方回复的release发布地址-->
                     <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
             </distributionManagement>
