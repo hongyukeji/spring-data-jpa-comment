@@ -28,7 +28,7 @@ import java.util.*;
  */
 public class JpaCommentService {
 
-    public static Logger logger = LoggerFactory.getLogger(JpaCommentService.class);
+    private final static Logger logger = LoggerFactory.getLogger(JpaCommentService.class);
 
     private EntityManager entityManager;
 

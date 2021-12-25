@@ -26,7 +26,7 @@ spring-data-jpa-comment 的方法很简单将 java属性上的注解注释内容
 
 用法如下：
 
-在yaml文件中添加
+1、在yaml文件中添加（默认为true）
 
 ```yaml
 spring:
@@ -35,14 +35,28 @@ spring:
       enable: true
 ```
 
-Entity 实体类里面添加注解 **@TableComment** 和  **@ColumnComment**
+2、在您的项目 @Configuration 注解类上面添加 @EnableJpaCommentAutoConfiguration
+
+```java
+package org.example.config;
+
+import ltd.hongyu.spring.data.jpa.comment.config.EnableJpaCommentAutoConfiguration;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EnableJpaCommentAutoConfiguration
+public class AppBootstrapConfig {
+}
+```
+
+3、Entity 实体类里面添加注解 **@TableComment** 和  **@ColumnComment**
 
 ```java
 
 package org.example.entity;
 
-import org.middol.starter.jpaComment.annotation.ColumnComment;
-import org.middol.starter.jpaComment.annotation.TableComment;
+import ltd.hongyu.spring.data.jpa.comment.annotation.ColumnComment;
+import ltd.hongyu.spring.data.jpa.comment.annotation.TableComment;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.example.base.BaseEntity;
