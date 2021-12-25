@@ -183,8 +183,8 @@
                         <executions>
                             <execution>
                                 <!-- 必须和配置中的gpg校验id一致 -->
-                                <id>gpg</id>
-                                <!--<id>sign-artifacts</id>-->
+                                <!--<id>gpg</id>-->
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
