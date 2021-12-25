@@ -14,10 +14,10 @@
     <artifactId>spring-data-jpa-comment</artifactId>
     <version>1.0.0</version>
 
-    <name>spring-data-jpa-comment</name>
-    <url>https://github.com/hongyukeji/spring-data-jpa-comment</url>
+    <name>${project.groupId}:${project.artifactId}</name>
     <!--suppress UnresolvedMavenProperty -->
     <description>Spring Data Jpa 支持 @TableComment("表名注释") @ColumnComment("字段注释")</description>
+    <url>https://github.com/hongyukeji/spring-data-jpa-comment</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
