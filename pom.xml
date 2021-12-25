@@ -19,33 +19,6 @@
     <!--suppress UnresolvedMavenProperty -->
     <description>Spring Data Jpa 支持 @TableComment("表名注释") @ColumnComment("字段注释")</description>
 
-    <!--开源协议-->
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <!-- 项目地址描述 -->
-    <scm>
-        <tag>main</tag>
-        <url>https://github.com/hongyukeji/spring-data-jpa-comment.git</url>
-        <connection>scm:git:https://github.com/hongyukeji/spring-data-jpa-comment.git</connection>
-        <developerConnection>scm:git:https://github.com/hongyukeji/spring-data-jpa-comment.git</developerConnection>
-    </scm>
-
-    <!-- 开发者描述 -->
-    <developers>
-        <developer>
-            <name>鸿宇</name>
-            <url>http://hongyu.ltd</url>
-            <email>1527200768@qq.com</email>
-            <organization>鸿宇科技</organization>
-        </developer>
-    </developers>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -110,7 +83,6 @@
     </dependencies>
 
     <build>
-        <!--<finalName>${project.artifactId}</finalName>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -124,6 +96,32 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--开源协议-->
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- 开发者描述 -->
+    <developers>
+        <developer>
+            <name>鸿宇</name>
+            <url>http://hongyu.ltd</url>
+            <email>1527200768@qq.com</email>
+            <organization>鸿宇科技</organization>
+            <organizationUrl>http://hongyu.ltd</organizationUrl>
+        </developer>
+    </developers>
+
+    <!-- 项目地址描述 -->
+    <scm>
+        <connection>scm:git:git://github.com/hongyukeji/spring-data-jpa-comment.git</connection>
+        <developerConnection>scm:git:ssh://github.com:hongyukeji/spring-data-jpa-comment.git</developerConnection>
+        <url>http://github.com/hongyukeji/spring-data-jpa-comment/tree/master</url>
+    </scm>
 
     <profiles>
         <profile>
@@ -183,7 +181,6 @@
                         <executions>
                             <execution>
                                 <!-- 必须和配置中的gpg校验id一致 -->
-                                <!--<id>gpg</id>-->
                                 <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
