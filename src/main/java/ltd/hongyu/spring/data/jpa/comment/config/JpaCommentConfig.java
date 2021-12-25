@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 @Configuration
-@ComponentScan("com.ant.extension.jpa.comment")
+@ComponentScan("ltd.hongyu.spring.data.jpa.comment")
 public class JpaCommentConfig {
 
     @PostConstruct
