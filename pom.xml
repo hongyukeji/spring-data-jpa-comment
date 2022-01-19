@@ -12,7 +12,7 @@
 
     <groupId>ltd.hongyu</groupId>
     <artifactId>spring-data-jpa-comment</artifactId>
-    <version>1.0.8</version>
+    <version>1.1.0</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <!--suppress UnresolvedMavenProperty -->
