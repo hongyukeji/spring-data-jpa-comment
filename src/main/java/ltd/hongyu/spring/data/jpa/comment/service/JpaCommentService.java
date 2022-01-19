@@ -7,6 +7,7 @@ import ltd.hongyu.spring.data.jpa.comment.annotation.ColumnComment;
 import ltd.hongyu.spring.data.jpa.comment.annotation.TableComment;
 import ltd.hongyu.spring.data.jpa.comment.pojo.dto.ColumnCommentDTO;
 import ltd.hongyu.spring.data.jpa.comment.pojo.dto.TableCommentDTO;
+import ltd.hongyu.spring.data.jpa.comment.properties.JpaCommentProperties;
 import org.hibernate.SessionFactory;
 import org.hibernate.internal.SessionFactoryImpl;
 import org.hibernate.persister.entity.EntityPersister;
@@ -14,6 +15,7 @@ import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.hibernate.persister.walking.spi.AttributeDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.StopWatch;
 
@@ -34,19 +36,27 @@ public class JpaCommentService {
 
     AlterCommentService alterCommentService;
 
+    @Autowired
+    private JpaCommentProperties jpaCommentProperties;
+
     Map<String, TableCommentDTO> dtoMap;
 
     public void init() {
         dtoMap = findAllTableAndColumn();
         logger.info("JpaCommentService 初始化成功...");
 
-        StopWatch watch = new StopWatch();
-        watch.start();
+        // 判断是否启动始终更新字段
+        if (jpaCommentProperties.isAlwaysUpdate()) {
 
-        alterAllTableAndColumn();
+            StopWatch watch = new StopWatch();
+            watch.start();
 
-        watch.stop();
-        logger.info("JpaCommentService 更新全库字段注释耗时: {} ms", watch.getTotalTimeMillis());
+            alterAllTableAndColumn();
+
+            watch.stop();
+            logger.info("JpaCommentService 更新全库字段注释耗时: {} ms", watch.getTotalTimeMillis());
+        }
+
     }
 
     /**

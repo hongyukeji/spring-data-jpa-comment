@@ -12,11 +12,21 @@ public class JpaCommentProperties {
 
     private boolean enable = true;
 
+    private boolean alwaysUpdate = true;
+
     public boolean isEnable() {
         return enable;
     }
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public boolean isAlwaysUpdate() {
+        return alwaysUpdate;
+    }
+
+    public void setAlwaysUpdate(boolean alwaysUpdate) {
+        this.alwaysUpdate = alwaysUpdate;
     }
 }
