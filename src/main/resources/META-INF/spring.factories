@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  ltd.hongyu.spring.data.jpa.comment.config.JpacommentAutoConfig

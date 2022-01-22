@@ -32,24 +32,11 @@ spring-data-jpa-comment 的方法很简单将 java属性上的注解注释内容
 spring:
   jpa:
     comment:
-      enable: true
+      enable: true # 启动数据库字段注释
+      always-update: true # 每次启动都会更新数据库字段注释
 ```
 
-2、在您的项目 @Configuration 注解类上面添加 @EnableJpaCommentAutoConfiguration
-
-```java
-package org.example.config;
-
-import ltd.hongyu.spring.data.jpa.comment.config.EnableJpaCommentAutoConfiguration;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-@EnableJpaCommentAutoConfiguration
-public class AppBootstrapConfig {
-}
-```
-
-3、Entity 实体类里面添加注解 **@TableComment** 和  **@ColumnComment**
+2、Entity 实体类里面添加注解 **@TableComment** 和  **@ColumnComment**
 
 ```java
 
