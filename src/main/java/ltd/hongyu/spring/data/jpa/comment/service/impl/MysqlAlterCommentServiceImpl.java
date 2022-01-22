@@ -2,6 +2,9 @@ package ltd.hongyu.spring.data.jpa.comment.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import ltd.hongyu.spring.data.jpa.comment.service.AlterCommentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -10,6 +13,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author <a href="mailto:1527200768@qq.com">hongyu</a>
  */
 public class MysqlAlterCommentServiceImpl implements AlterCommentService {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
     private String schema;
 
     private JdbcTemplate jdbcTemplate;
@@ -47,9 +53,14 @@ public class MysqlAlterCommentServiceImpl implements AlterCommentService {
 
     @Override
     public void alterColumnComment(String tableName, String columnName, String columnComment) {
-        String updateColumnComment = jdbcTemplate.queryForObject(getUpdateColumnComment, String.class, schema, tableName, columnName);
-        if (StrUtil.isNotBlank(updateColumnComment)) {
-            jdbcTemplate.update(updateColumnComment, columnComment);
+        try {
+            String updateColumnComment = jdbcTemplate.queryForObject(getUpdateColumnComment, String.class, schema, tableName, columnName);
+            if (StrUtil.isNotBlank(updateColumnComment)) {
+                jdbcTemplate.update(updateColumnComment, columnComment);
+            }
+        } catch (DataAccessException e) {
+            //e.printStackTrace();
+            logger.error("MysqlAlterCommentServiceImpl->alterColumnComment() {}", e.getMessage(), e);
         }
     }
 
