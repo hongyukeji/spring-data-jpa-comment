@@ -60,7 +60,7 @@ public class MysqlAlterCommentServiceImpl implements AlterCommentService {
             }
         } catch (DataAccessException e) {
             //e.printStackTrace();
-            logger.error("MysqlAlterCommentServiceImpl->alterColumnComment() {}", e.getMessage(), e);
+            logger.warn("MysqlAlterCommentServiceImpl->alterColumnComment() {}", e.getMessage(), e);
         }
     }
 
